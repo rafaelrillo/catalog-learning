@@ -1,0 +1,20 @@
+@import './base/variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: #333;
+  background-color: #fff;
+}
+
+h1, h2, h3 {
+  color: $primary-tortas;
+  margin-bottom: $spacing-sm;
+}
