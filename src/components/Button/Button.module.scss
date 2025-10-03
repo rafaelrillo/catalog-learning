@@ -1,0 +1,69 @@
+@import '../../styles/base/variables';
+
+.button {
+  font-family: $font-primary;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Variants
+.primary {
+  background-color: $primary-tortas;
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background-color: $secondary-tortas;
+  }
+}
+
+.secondary {
+  background-color: $primary-tartas;
+  color: $secondary-tartas;
+  
+  &:hover:not(:disabled) {
+    background-color: lighten($primary-tartas, 5%);
+  }
+}
+
+.outlined {
+  background-color: transparent;
+  color: $primary-tortas;
+  border: 2px solid $primary-tortas;
+  
+  &:hover:not(:disabled) {
+    background-color: $primary-tortas;
+    color: white;
+  }
+}
+
+// Sizes
+.small {
+  padding: $spacing-xs $spacing-sm;
+  font-size: 0.875rem;
+}
+
+.medium {
+  padding: $spacing-sm $spacing-md;
+  font-size: 1rem;
+}
+
+.large {
+  padding: $spacing-md $spacing-lg;
+  font-size: 1.125rem;
+}
