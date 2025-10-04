@@ -1,0 +1,91 @@
+@import '../../styles/base/variables';
+
+.section {
+  margin-bottom: $spacing-lg;
+  padding: $spacing-md 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+  padding: 0 $spacing-md;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  color: #333;
+}
+
+.count {
+  font-size: 0.875rem;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-weight: 500;
+  color: white;
+}
+
+.productsContainer {
+  overflow: hidden;
+  padding: 0 $spacing-md;
+}
+
+.productsScroll {
+  display: flex;
+  gap: $spacing-md;
+  overflow-x: auto;
+  padding-bottom: $spacing-sm;
+  
+  // Hide scrollbar but keep functionality
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE
+  
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari
+  }
+}
+
+.productWrapper {
+  flex: 0 0 280px; // Fixed width, no shrink/grow
+  min-width: 280px;
+}
+
+// Category-specific colors
+.tortas {
+  .count {
+    background-color: $secondary-tortas;
+  }
+  .title {
+    color: $primary-tortas;
+  }
+}
+
+.tartas {
+  .count {
+    background-color: $secondary-tartas;
+  }
+  .title {
+    color: $secondary-tartas;
+  }
+}
+
+.postres {
+  .count {
+    background-color: #008FBD;
+  }
+  .title {
+    color: #008FBD;
+  }
+}
+
+.panes {
+  .count {
+    background-color: #8BC34A;
+  }
+  .title {
+    color: #8BC34A;
+  }
+}

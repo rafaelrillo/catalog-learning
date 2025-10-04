@@ -1,46 +1,96 @@
 'use client'
 
 import { Button } from '@/components/Button';
-import { ProductCard } from '@/components/ProductCard';
+import { CategorySection } from '@/components/CategorySection';
+import { ProductCard, Product } from '@/components/ProductCard';
 
 export default function Home() {
 
-  const sampleProduct = {
-    name: 'Torta Matilda',
-    description: 'Torta hecha con una cantidad insana de chocolate',
-    price: 25000,
-    portions: 8,
-    image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400",
-    category: 'tortas' as const
-  }
+  const tortasProducts: Product[] = [
+    {
+      name: "Torta de Chocolate",
+      description: "Deliciosa torta de chocolate con ganache",
+      price: 45000,
+      portions: 8,
+      image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400",
+      category: "tortas"
+    },
+    {
+      name: "Torta Red Velvet",
+      description: "Clásica torta red velvet con cream cheese",
+      price: 48000,
+      portions: 10,
+      image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400",
+      category: "tortas"
+    },
+    {
+      name: "Torta de Vainilla",
+      description: "Suave torta de vainilla con buttercream",
+      price: 42000,
+      portions: 8,
+      image: "https://images.unsplash.com/photo-1549312284-64ac26e78fcb?w=400",
+      category: "tortas"
+    }
+  ];
 
-  const handleClick = () => {
-    alert('clicked')
-  }
+  const tartasProducts: Product[] = [
+    {
+      name: "Tarta de Frutas",
+      description: "Tarta fresca con frutas de estación",
+      price: 35000,
+      portions: 6,
+      image: "https://images.unsplash.com/photo-1519340333755-56e9c1d7eb93?w=400",
+      category: "tartas"
+    },
+    {
+      name: "Tarta de Limón",
+      description: "Tarta de limón con merengue",
+      price: 32000,
+      portions: 8,
+      image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400",
+      category: "tartas"
+    }
+  ];
+
+  const postresProducts: Product[] = [
+     {
+      name: "Tiramisú",
+      description: "Clásico postre italiano",
+      price: 25000,
+      portions: 4,
+      image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400",
+      category: "postres"
+    }
+  ]
 
   return (
 
-     <main style={{ padding: '2rem' }}>
-      <h1>Catalog Prototype - Día 3</h1>
+     <main style={{ padding: '2rem 0' }}>
+      <div style={{ padding: '0 2rem', marginBottom: '2rem' }}>
+        <h1>Panadería Artesanal</h1>
+        <p>Catálogo de productos frescos y deliciosos</p>
+      </div>
+
+      <CategorySection
+        title='Tortas'
+        products={tortasProducts}
+        categoryType='tortas'
+      />
+
+      <CategorySection
+        title='Tartas'
+        products={tartasProducts}
+        categoryType='tartas'
+      />
+
+      <CategorySection
+        title='Postres'
+        products={postresProducts}
+        categoryType='postres'
+      />
 
 
-    <div style={{ marginTop: '2rem', maxWidth: '300px' }}>
-      <ProductCard product={sampleProduct} />
-    </div>
 
-    <div style={{
-      display: 'flex',
-      gap: '1rem',
-      alignItems: 'center',
-      flexDirection: 'column',
-      justifyContent: 'center'
-    }}>
-      <Button variant='primary' size='small' onClick={handleClick}>Primary Small</Button>
-      <Button variant='primary' size='medium' onClick={handleClick}>Primary Medium</Button>
-      <Button variant='secondary' size='medium' onClick={handleClick}>Secondary Medium</Button>
-      <Button variant='outlined' size='medium' onClick={handleClick}>outlined Medium</Button>
-      <Button variant='primary' size='medium' onClick={handleClick} disabled>Disabled</Button>
-    </div>
     </main>
   );
 }
