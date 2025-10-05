@@ -1,0 +1,133 @@
+@import '../../styles/base/variables';
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: $spacing-sm 0;
+  transition: all 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: $primary-tortas;
+  line-height: 1;
+}
+
+.logoSubtext {
+  font-size: 0.75rem;
+  color: $secondary-tortas;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navList {
+  display: flex;
+  gap: $spacing-md;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  // List item styles if needed
+}
+
+.navLink {
+  background: none;
+  border: none;
+  padding: $spacing-xs $spacing-md;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+// Category-specific colors
+.tortas {
+  color: $primary-tortas;
+  background-color: rgba(230, 119, 146, 0.1);
+  
+  &:hover {
+    background-color: $primary-tortas;
+    color: white;
+  }
+}
+
+.tartas {
+  color: $secondary-tartas;
+  background-color: rgba(255, 167, 38, 0.1);
+  
+  &:hover {
+    background-color: $secondary-tartas;
+    color: white;
+  }
+}
+
+.postres {
+  color: #008FBD;
+  background-color: rgba(0, 143, 189, 0.1);
+  
+  &:hover {
+    background-color: #008FBD;
+    color: white;
+  }
+}
+
+.panes {
+  color: #8BC34A;
+  background-color: rgba(139, 195, 74, 0.1);
+  
+  &:hover {
+    background-color: #8BC34A;
+    color: white;
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+  
+  .navList {
+    gap: $spacing-sm;
+  }
+  
+  .navLink {
+    padding: $spacing-xs $spacing-sm;
+    font-size: 0.8rem;
+  }
+}

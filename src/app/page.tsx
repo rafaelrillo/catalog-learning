@@ -3,8 +3,16 @@
 import { Button } from '@/components/Button';
 import { CategorySection } from '@/components/CategorySection';
 import { ProductCard, Product } from '@/components/ProductCard';
+import { MainMenu } from '@/components/MainMenu';
 
 export default function Home() {
+
+  const menuLinks = [
+    { label: 'Tortas', href: '#tortas', category: 'tortas' as const },
+    { label: 'Tartas', href: '#tartas', category: 'tartas' as const },
+    { label: 'Postres', href: '#postres', category: 'postres' as const },
+    { label: 'Panes', href: '#panes', category: 'panes' as const },
+  ];
 
   const tortasProducts: Product[] = [
     {
@@ -53,7 +61,7 @@ export default function Home() {
   ];
 
   const postresProducts: Product[] = [
-     {
+    {
       name: "Tiramisú",
       description: "Clásico postre italiano",
       price: 25000,
@@ -65,32 +73,38 @@ export default function Home() {
 
   return (
 
-     <main style={{ padding: '2rem 0' }}>
-      <div style={{ padding: '0 2rem', marginBottom: '2rem' }}>
-        <h1>Panadería Artesanal</h1>
-        <p>Catálogo de productos frescos y deliciosos</p>
-      </div>
+    <>
+      <MainMenu links={menuLinks} />
+      <main style={{ padding: '2rem 0' }}>
+        <div style={{ padding: '0 2rem', marginBottom: '2rem' }}>
+          <h1>Panadería Artesanal</h1>
+          <p>Catálogo de productos frescos y deliciosos</p>
+        </div>
+        <div id='tortas'>
+          <CategorySection
+            title='Tortas'
+            products={tortasProducts}
+            categoryType='tortas'
+          />
+        </div>
+        <div id='tartas'>
+        <CategorySection
+          title='Tartas'
+          products={tartasProducts}
+          categoryType='tartas'
+          />
+          </div>
+        <div id='postres'>
+        <CategorySection
+          title='Postres'
+          products={postresProducts}
+          categoryType='postres'
+          />
+          </div>
 
-      <CategorySection
-        title='Tortas'
-        products={tortasProducts}
-        categoryType='tortas'
-      />
-
-      <CategorySection
-        title='Tartas'
-        products={tartasProducts}
-        categoryType='tartas'
-      />
-
-      <CategorySection
-        title='Postres'
-        products={postresProducts}
-        categoryType='postres'
-      />
 
 
-
-    </main>
+      </main>
+    </>
   );
 }
