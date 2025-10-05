@@ -1,11 +1,26 @@
 'use client'
 
-import { Button } from '@/components/Button';
+import { useState } from 'react';
 import { CategorySection } from '@/components/CategorySection';
-import { ProductCard, Product } from '@/components/ProductCard';
+import { Product } from '@/components/ProductCard';
 import { MainMenu } from '@/components/MainMenu';
+import { ProductModal } from '@/components/ProductModal';
 
 export default function Home() {
+
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const openModal = (product: Product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  }
+
+  const closeModal = () => {
+    setSelectedProduct(null);
+    setIsModalOpen(false);
+  }
+
 
   const menuLinks = [
     { label: 'Tortas', href: '#tortas', category: 'tortas' as const },
@@ -85,6 +100,7 @@ export default function Home() {
             title='Tortas'
             products={tortasProducts}
             categoryType='tortas'
+            onProductClick={openModal}
           />
         </div>
         <div id='tartas'>
@@ -92,6 +108,7 @@ export default function Home() {
           title='Tartas'
           products={tartasProducts}
           categoryType='tartas'
+          onProductClick={openModal}
           />
           </div>
         <div id='postres'>
@@ -99,12 +116,17 @@ export default function Home() {
           title='Postres'
           products={postresProducts}
           categoryType='postres'
+          onProductClick={openModal}
           />
           </div>
-
-
-
       </main>
+
+      <ProductModal 
+        product={selectedProduct}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        />
+
     </>
   );
 }

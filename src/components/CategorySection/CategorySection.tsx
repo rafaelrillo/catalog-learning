@@ -7,12 +7,14 @@ interface CategorySection {
   title: string;
   products: Product[];
   categoryType: 'tortas' | 'tartas' | 'postres' | 'panes';
+  onProductClick: (product: Product) => void;
 }
 
 export const CategorySection = ({
   title,
   products,
-  categoryType
+  categoryType,
+  onProductClick
 }: CategorySection) => {
   return (
     <section className={`${styles.section} ${styles[categoryType]}`}>
@@ -25,7 +27,7 @@ export const CategorySection = ({
         <div className={styles.productsScroll}>
           {products.map((product, index) => (
             <div key={index} className={styles.productWrapper}>
-              <ProductCard product={product} />
+              <ProductCard product={product} onClick={() => onProductClick(product)}/>
             </div>
           )
           )}

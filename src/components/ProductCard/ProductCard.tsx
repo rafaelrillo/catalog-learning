@@ -13,14 +13,15 @@ export interface Product {
 
 interface ProductCardProps {
   product: Product;
+  onClick?: () => void;
 }
 
-export const ProductCard = ({product}: ProductCardProps ) => {
+export const ProductCard = ({product, onClick}: ProductCardProps ) => {
 
   const { name, description, price, portions, image, category } = product
 
   return (
-    <div className={`${styles.card} ${styles[category]}`}>
+    <div className={`${styles.card} ${styles[category]}`}  onClick={onClick} style={{ cursor: onClick ? 'pointer' : 'default' }}>
       <div className={styles.imageContainer}>  
         <img src={image} alt={name} className={styles.image} />
       </div>
